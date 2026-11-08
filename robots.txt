@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pashaadventures.ru/sitemap.xml

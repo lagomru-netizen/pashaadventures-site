@@ -1,13 +1,150 @@
-:root{--cream:#fff4de;--paper:#fffaf0;--brown:#4a2a18;--green:#2e6e40;--muted:#7a6250}
-*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--brown);font:18px/1.6 Georgia,"Times New Roman",serif}
-header{background:var(--cream);border-bottom:3px solid var(--brown)}
-.wrap{max-width:900px;margin:0 auto;padding:24px}
-.brand{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--brown)}
-.brand img{width:64px;height:64px;border-radius:50%;border:3px solid var(--brown)}
-.brand b{font-size:26px}
-.hero img{width:100%;display:block;border-bottom:3px solid var(--brown)}
-h1{font-size:38px;line-height:1.2;margin:32px 0 8px}h2{margin-top:32px}
-.btn{display:inline-block;background:var(--green);color:#fff;padding:14px 26px;border-radius:30px;text-decoration:none;font-weight:bold;margin:16px 0;min-height:44px}
-.topics{display:flex;flex-wrap:wrap;gap:10px;padding:0;list-style:none}.topics li{background:var(--cream);border:2px solid var(--brown);border-radius:20px;padding:4px 14px}
-footer{border-top:2px solid var(--brown);margin-top:48px;color:var(--muted);font-size:15px}footer a{color:var(--muted)}
-.ru{color:var(--muted)}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/golos-text-latin-500.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/golos-text-latin-ext-500.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/golos-text-cyrillic-500.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/golos-text-latin-700.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/golos-text-latin-ext-700.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/golos-text-cyrillic-700.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:900;font-display:swap;src:url(/fonts/golos-text-latin-900.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:900;font-display:swap;src:url(/fonts/golos-text-latin-ext-900.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Golos Text';font-style:normal;font-weight:900;font-display:swap;src:url(/fonts/golos-text-cyrillic-900.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'PT Sans';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/pt-sans-latin-400.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'PT Sans';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/pt-sans-latin-ext-400.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'PT Sans';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/pt-sans-cyrillic-400.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'PT Sans';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/pt-sans-latin-700.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'PT Sans';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/pt-sans-latin-ext-700.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'PT Sans';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/pt-sans-cyrillic-700.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Balsamiq Sans';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/balsamiq-sans-latin-700.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Balsamiq Sans';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/balsamiq-sans-latin-ext-700.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Balsamiq Sans';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/balsamiq-sans-cyrillic-700.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Hind';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/hind-latin-400.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Hind';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/hind-devanagari-400.woff2) format('woff2');unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+20F0,U+25CC,U+A830-A839,U+A8E0-A8FF}
+@font-face{font-family:'Hind';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/hind-latin-700.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Hind';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/hind-devanagari-700.woff2) format('woff2');unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+20F0,U+25CC,U+A830-A839,U+A8E0-A8FF}
+/* Pasha's Adventures — сайт. Цвета и шрифты из Figma (файл Pasha-s-Adventures, страница Site). */
+:root{
+  --cream:#fff6e6; --white:#fff; --text:#262626; --head:#3a3a3a; --muted:#5f5a52; --line:#ddd5c8;
+  --green:#3f6b4a; --brass:#d9a441; --sky:#5b95c9; --brick:#c4573e; --lilac:#9a7bb5; --meadow:#6e9f4a;
+  --f-head:"Golos Text","Hind",system-ui,sans-serif; --f-body:"PT Sans","Hind",system-ui,sans-serif;
+  --f-hand:"Balsamiq Sans","Golos Text","Hind",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:400 17px/1.55 var(--f-body);color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--green)}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-head);color:var(--text);margin:0}
+h1{font-weight:900;font-size:clamp(38px,5vw,60px);line-height:1.08;letter-spacing:-.01em}
+h2{font-weight:900;font-size:clamp(30px,3.4vw,44px);line-height:1.12}
+h3{font-weight:700;font-size:22px;line-height:1.25}
+.lead{font-size:20px;color:var(--head);margin:10px 0 0}
+section{padding:88px 0}
+.cream{background:var(--cream)}
+:lang(hi) h1,:lang(hi) h2{font-weight:700;line-height:1.3}
+
+/* кнопки и наклейка */
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:12px 26px;border-radius:999px;
+  font:700 18px/1.2 var(--f-head);text-decoration:none;border:2px solid var(--green);transition:transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-main{background:var(--green);color:#fff}
+.btn-alt{background:transparent;color:var(--green)}
+.sticker{display:inline-block;background:var(--brass);color:var(--text);font:700 18px/1.2 var(--f-hand);
+  padding:6px 14px;border-radius:8px;transform:rotate(-1deg)}
+
+/* шапка */
+.top{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:24px;min-height:80px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font:900 22px/1 var(--f-head);white-space:nowrap}
+.brand img{width:44px;height:44px;border-radius:50%;border:2px solid var(--text)}
+.menu{display:flex;gap:22px;margin-left:auto}
+.menu a{font:500 17px/1 var(--f-head);color:var(--text);text-decoration:none}
+.menu a:hover{color:var(--green)}
+.lang{position:relative}
+.lang summary{list-style:none;cursor:pointer;border:1px solid var(--text);border-radius:999px;padding:8px 14px;font:500 16px/1 var(--f-head)}
+.lang summary::-webkit-details-marker{display:none}
+.lang ul{position:absolute;right:0;top:calc(100% + 6px);margin:0;padding:6px;list-style:none;background:#fff;border:1px solid var(--line);border-radius:12px;min-width:150px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.lang li a{display:block;padding:10px 12px;border-radius:8px;text-decoration:none;color:var(--text);font:500 16px/1 var(--f-head)}
+.lang li a:hover,.lang li a[aria-current]{background:var(--cream)}
+.top .btn{min-height:44px;padding:10px 20px;font-size:17px}
+
+/* первый экран */
+.hero{background:var(--cream);padding:56px 0 64px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:center}
+.hero h1{margin:18px 0 18px}
+.hero p{font-size:20px;margin:0 0 28px;max-width:34em}
+.actions{display:flex;flex-wrap:wrap;gap:16px}
+.note{font-size:15px;color:var(--muted);margin-top:22px!important}
+
+/* полка серий */
+.shelf{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:40px}
+.book{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff;text-decoration:none;color:inherit}
+a.book:hover{box-shadow:0 10px 28px rgba(63,107,74,.14)}
+.book img{border-radius:10px;aspect-ratio:4/3;object-fit:cover;width:100%}
+.book small{font:700 13px/1.3 var(--f-body);margin-top:14px;color:var(--head)}
+.book h3{margin:6px 0 10px}
+.book span{margin-top:auto;font-size:15px;color:var(--muted)}
+.book.live span{color:var(--green);font-weight:700}
+
+/* семья */
+.family{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:40px}
+.hero-card{background:#fff;border-radius:20px;padding:24px}
+.hero-card img{border-radius:14px;aspect-ratio:1;object-fit:cover;width:100%}
+.hero-card h3{font-size:26px;margin:18px 0 8px}
+.hero-card p{margin:0}
+
+/* родителям */
+.promises{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:40px 0 32px}
+.promise{background:var(--cream);border-radius:20px;padding:28px}
+.promise i{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;color:#fff;font:700 22px/1 var(--f-head);font-style:normal;margin-bottom:16px}
+.promise h3{font-size:24px;margin-bottom:8px}
+.promise p{margin:0}
+
+/* раскраски */
+.sheets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:40px}
+.sheet{display:block;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;text-decoration:none;color:inherit}
+.sheet:hover{box-shadow:0 10px 28px rgba(63,107,74,.14)}
+.sheet img{aspect-ratio:3/4;object-fit:cover;width:100%;border:1px solid #e6e0d6;border-radius:6px}
+.sheet b{display:block;font:700 19px/1.3 var(--f-head);margin-top:14px}
+.sheet span{font-size:14px;color:var(--muted)}
+
+/* языки */
+.langs{background:var(--green);color:#fff;text-align:center;padding:64px 0}
+.langs h2{color:#fff;font-size:36px}
+.langs nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 28px;margin:20px 0 14px}
+.langs nav a{color:#fff;font:500 22px/1.3 var(--f-head);text-decoration:none;border-bottom:2px solid transparent}
+.langs nav a:hover,.langs nav a[aria-current]{border-color:var(--brass)}
+.langs p{margin:0;opacity:.9}
+
+/* подвал */
+.foot{background:var(--text);color:#e8e2d8;padding:40px 0}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center}
+.foot b{font:900 20px/1 var(--f-head);color:#fff}
+.foot p{margin:6px 0 0;font-size:15px}
+.foot nav{display:flex;flex-wrap:wrap;gap:22px}
+.foot a{color:#fff;font:500 16px/1 var(--f-head);text-decoration:none}
+.foot a:hover{text-decoration:underline}
+
+/* документы (политика, условия) */
+.doc{max-width:780px;padding:56px 0 80px}
+.doc h1{font-size:44px;margin-bottom:12px}
+.doc h2{font-size:26px;margin:32px 0 8px}
+
+/* адаптив */
+@media (max-width:1100px){.menu{display:none}.lang{margin-left:auto}}
+@media (max-width:960px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr);gap:28px}
+  .hero .art{order:2}
+  .shelf,.sheets{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .family,.promises{grid-template-columns:minmax(0,1fr)}
+  .family{max-width:520px}
+}
+@media (max-width:600px){
+  section{padding:56px 0}
+  .top .btn{display:none}
+  .brand{font-size:18px}
+  .hero{padding:32px 0 40px}
+  .actions .btn{width:100%;justify-content:center}
+  .shelf{grid-template-columns:minmax(0,1fr)}
+  .sheets{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .sheet{padding:10px}
+}
